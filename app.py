@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 
-# Wczytywanie danych
 @st.cache_data
 def load_data():
     df1 = pd.read_excel('v2_M3_smaller_wyniki_25000.xlsx', index_col=[0, 1, 2, 3])
@@ -12,12 +11,10 @@ def load_data():
 
 df = load_data()
 
-# Parametry
 Qs = [25000, 50000]
 Ls = [1, 2]
 available_models = sorted(df['index'].unique())
 
-# Interfejs użytkownika
 st.title("Efficiency Curve Visualization")
 
 st.markdown('''In this application we present the individual outputs for the results of the computation obtained in the manuscript (full details printed after the blind revision). The Methods to select are following:
@@ -48,7 +45,6 @@ selected_models = st.multiselect("Select Methods:", available_models, default=['
 
 unroman = {'I': 1, 'II': 2, 'III': 3, 'IV': 4, 'V': 5, 'VI': 6, 'VII': 7}
 
-# Rysowanie wykresu
 if selected_models:
     maxes = []
     mins = []
@@ -79,7 +75,6 @@ if selected_models:
         template='plotly_white'
     )
 
-    # Dodanie poziomych linii referencyjnych
     for fr in [0.95, 0.975, 0.99, 0.995]:
         fig.add_shape(type='line',
                       x0=min(df['Mean inventory per demand unit'] - .005),
