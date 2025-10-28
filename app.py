@@ -4,8 +4,8 @@ import plotly.graph_objects as go
 
 @st.cache_data
 def load_data():
-    df1 = pd.read_excel('M3_25000.xlsx', index_col=[0, 1, 2, 3])
-    df2 = pd.read_excel('M3_50000.xlsx', index_col=[0, 1, 2, 3])
+    df1 = pd.read_csv('M3_25000.csv', index_col=[0, 1, 2, 3])
+    df2 = pd.read_csv('M3_50000.csv', index_col=[0, 1, 2, 3])
     df = pd.concat([df1, df2]).reset_index()
     return df
 
