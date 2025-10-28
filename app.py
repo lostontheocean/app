@@ -24,7 +24,7 @@ st.markdown('''In this application we present the individual outputs for the res
 
 - Method III employs the GAS(1,1) model, 
 
-- Method IV utilizes distributional forecasts generated via DeepAR, and IVa is an extender version optimized with the wider parameters space 
+- Method IV utilizes distributional forecasts generated via DeepAR, and IVa is an extended version optimized with the wider parameters space 
 
 - Method V applies a two-step procedure without distributional assumptions, 
 
