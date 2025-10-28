@@ -62,8 +62,9 @@ if selected_models:
                   for fr, inv in zip(data['FR'], data['Mean inventory per demand unit'])],
             hoverinfo='text',
         ))
-        maxes.append(max(data['Mean inventory per demand unit'] + .005))
-        mins.append(min(data['Mean inventory per demand unit'] - .005))
+        if r_model != 'IVa':
+            maxes.append(max(data['Mean inventory per demand unit'] + .005))
+            mins.append(min(data['Mean inventory per demand unit'] - .005))
 
     fig.update_layout(
         title=f'Efficiency Curves for Q = {selected_Q}, L = {selected_L}',
