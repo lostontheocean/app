@@ -43,7 +43,7 @@ available_models = list(unroman.keys())
 
 selected_models = st.multiselect("Select Methods:", available_models, default=['II'])
 
-#unroman = {'I': 1, 'II': 2, 'III': 3, 'IV': 4, 'V': 5, 'VI': 6, 'VII': 7}
+unroman = {'I': 1, 'II': 2, 'III': 3, 'IV': 4, 'V': 5, 'VI': 6, 'VII': 7}
 
 if selected_models:
     maxes = []
