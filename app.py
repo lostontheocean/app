@@ -13,8 +13,7 @@ df = load_data()
 
 Qs = [25000, 50000]
 Ls = [1, 2]
-available_models = df['index'].unique()
-st.markdown(available_models)
+
 st.title("Efficiency Curve Visualization")
 
 st.markdown('''In this application we present the individual outputs for the results of the computation obtained in the manuscript (full details printed after the blind revision). The Methods to select are following:
@@ -62,9 +61,8 @@ if selected_models:
                   for fr, inv in zip(data['FR'], data['Mean inventory per demand unit'])],
             hoverinfo='text',
         ))
-        if r_model != 'IVa':
-            maxes.append(max(data['Mean inventory per demand unit'] + .005))
-            mins.append(min(data['Mean inventory per demand unit'] - .005))
+        maxes.append(max(data['Mean inventory per demand unit'] + .005))
+        mins.append(min(data['Mean inventory per demand unit'] - .005))
 
     fig.update_layout(
         title=f'Efficiency Curves for Q = {selected_Q}, L = {selected_L}',
