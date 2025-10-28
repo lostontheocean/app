@@ -13,7 +13,7 @@ df = load_data()
 
 Qs = [25000, 50000]
 Ls = [1, 2]
-available_models = sorted(df['index'].unique())
+available_models = df['index'].unique()
 
 st.title("Efficiency Curve Visualization")
 
@@ -25,7 +25,7 @@ st.markdown('''In this application we present the individual outputs for the res
 
 - Method III employs the GAS(1,1) model, 
 
-- Method IV utilizes distributional forecasts generated via DeepAR, 
+- Method IV utilizes distributional forecasts generated via DeepAR, and IVa is an extender version optimized with the wider parameters space 
 
 - Method V applies a two-step procedure without distributional assumptions, 
 
@@ -38,12 +38,12 @@ To print one individual or multiple curves, select the model under proper settin
 selected_Q = st.selectbox("Select demand quantity (Q):", Qs)
 selected_L = st.selectbox("Select lead time (L):", [0,1])
 
-unroman = {'I': 1, 'II': 2, 'III': 3, 'IV': 4, 'V': 5, 'VI': 6, 'VII': 7}
+unroman = {'I': 1, 'II': 2, 'III': 3, 'IV': 4, 'IVa': '4a', 'V': 5, 'VI': 6, 'VII': 7}
 available_models = list(unroman.keys())
 
 selected_models = st.multiselect("Select Methods:", available_models, default=['II'])
 
-unroman = {'I': 1, 'II': 2, 'III': 3, 'IV': 4, 'V': 5, 'VI': 6, 'VII': 7}
+#unroman = {'I': 1, 'II': 2, 'III': 3, 'IV': 4, 'V': 5, 'VI': 6, 'VII': 7}
 
 if selected_models:
     maxes = []
